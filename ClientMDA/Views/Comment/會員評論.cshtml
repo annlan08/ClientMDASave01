@@ -1,0 +1,158 @@
+﻿
+@{
+    ViewData["Title"] = "會員評論";
+}
+
+@section Styles{
+    <style>
+        #memBgImg { /*會員背景圖*/
+            background: #E55D87; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #5FC3E4, #E55D87); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, rgba(137, 211, 235,0.8), rgba(236, 137, 168,0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .membtn {
+            float: right;
+            bottom: 0;
+            margin-right: 20px;
+        }
+    </style>
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/Comment/jquery.eeyellow.Timeline.css" /> @*我的評論時間軸*@
+
+@*會員header*@
+<div id="memBgImg" class="py-1 bg-image-full">
+    @*會員背景圖*@
+    <div class="text-center my-5">
+        <img style="width: 100%+733px !important;" class="img-fluid rounded-circle mb-4"
+             src="~/images/Comment/mem01.png" alt="..." width="150"> @*會員預設大頭貼 https://dummyimage.com/150x150/6c757d/dee2e6.jpg*@
+            <h4 class="text-white fs-3 fw-bolder">Yuka</h4>
+            @*<span class="text-white-50 mb-0">@@帳號</span><br />
+                <span class="text-white-50 mb-0">此用戶觀看過N部電影</span>*@
+            <span class="text-white-50 mb-0">4則評論 ‧ 7人追蹤</span><br />
+            <div class="membtn">
+                <button class="btn btn-info btn-sm">追蹤會員</button>
+                <button class="btn btn-danger btn-sm">檢舉</button>
+            </div>
+        </div>
+    </div>
+
+    @*評論時間軸*@
+    <body>
+        <div class="VivaTimeline">
+            <dl>
+                <!--月份 標籤1-->
+                <dt>2021 - Feb</dt>
+
+                <!--#region 左側文章 start-->
+                <dd class="pos-left clearfix">
+                    <div class="circ"></div>
+                    <div class="time">Feb-20</div><!--填入日期-->
+                    <div class="events">
+                        <div class="events-header">不只關於速度與飛翔的渴望,也與我們的悔恨以及所需要的勇氣有關</div><!--填入標題-->
+                        <div class="events-body">
+                            <div @*class="row"*@>
+                                <div class=" pull-left" @*col-md-6*@>
+                                    <img class="events-object img-responsive img-rounded" src="https://im.marieclaire.com.tw/m800c533h100b0/assets/mc/202205/628C963D8F7801653380669.jpeg" /><!--填入圖片網址-->
+                                </div>
+                                <div class="events-desc">
+                                    湯姆．克魯斯（Tom Cruise）的《捍衛戰士：獨行俠》（Top Gun: Maverick）在各地試映過後，隨即得到了一片熱烈好評，
+                                    並被不少人稱為一定要進戲院欣賞的超級大片......
+                                </div>@*填入描述*@
+                            </div>
+                        </div>
+                        <div class="events-footer"><a asp-area="" asp-controller="Comment" asp-action="電影評論">繼續閱讀</a></div><!--可填底部標題 或刪除-->
+                    </div>
+                </dd>
+                <!--#endregion 左側文章 end-->
+
+                <!--#region 右側文章 start-->
+                <dd class="pos-right clearfix">
+                    <div class="circ"></div>
+                    <div class="time">Feb 13</div><!--填入日期-->
+                    <div class="events">
+                        <div class="events-header">刻骨銘心的悲傷序曲</div><!--填入標題-->
+                        <div class="events-body">
+                            <div class="pull-left">
+                                <img class="events-object img-responsive img-rounded" src="https://m.media-amazon.com/images/M/MV5BMjAzMzQ4MjE0Nl5BMl5BanBnXkFtZTgwNDAyMTI1MDI@@._V1_.jpg" /><!--填入圖片網址-->
+                            </div>
+                            <div class="events-desc">
+                                怪獸與牠們的產地這部電影最神奇的地方是，雖然是繼哈利波特系列後的第二個全新系列，
+                                但每個環節絲毫不馬虎，帶回影迷觀看首集哈利波特當初那股感動。......
+                            </div>@*填入描述*@
+                        </div>
+                        <div class="events-footer"><a asp-area="" asp-controller="Comment" asp-action="電影評論">繼續閱讀</a></div><!--可填底部標題 或刪除-->
+                    </div>
+                </dd>
+                <!--#endregion 右側文章 end-->
+
+                <!--月份 2-->
+                <dt>Jan 2021</dt>
+
+                <!--#region 左側文章 start-->
+                <dd class="pos-left clearfix">
+                    <div class="circ"></div>
+                    <div class="time">Jan 30</div><!--填入日期-->
+                    <div class="events">
+                        <div class="events-header">爽度十足的DC英雄片，巨石強森的強大魅力</div><!--填入標題-->
+                        <div class="events-body">
+                            <div class="pull-left">
+                                <img class="events-object img-responsive img-rounded" src="https://m.media-amazon.com/images/M/MV5BNjNkYjUzYjAtMWJmYy00NDgxLWI0ZjUtMmEzMmQ3OWMwY2Q1XkEyXkFqcGdeQXVyMDM2NDM2MQ@@@@._V1_.jpg" /><!--填入圖片網址-->
+                            </div>
+                            <div class="events-desc">
+                                《黑亞當》是一部2022上映的DC超級英雄電影，劇情講述在被遠古眾神賦予神力，卻遭囚禁將近5000年後，
+                                「黑亞當」從他的墓地中獲得解放，準備以獨特方式在現代社會實踐他心目中的正義......
+                            </div><!--填入描述-->
+                        </div>
+                        <div class="events-footer"><a asp-area="" asp-controller="Comment" asp-action="電影評論">繼續閱讀</a></div><!--可填底部標題 或刪除-->
+                    </div>
+                </dd>
+                <!--#endregion 左側文章 end-->
+
+                <!--右側文章 start-->
+                <dd class="pos-right clearfix">
+                    <div class="circ"></div>
+                    <div class="time">Jan 17</div><!--填入日期-->
+                    <div class="events">
+                        <div class="events-header">隱藏在混亂生活的三種入口</div><!--填入標題-->
+                        <div class="events-body">
+                            <div class="pull-left">
+                                <img class="events-object img-responsive img-rounded" src="https://image1.thenewslens.com/2022/5/xrjrnhwiann2xqobfhar3z7kzgu7s8.jpeg?auto=compress&h=648&q=80&w=1080" /><!--填入圖片網址-->
+                            </div>
+                            <div class="events-desc">
+                                《媽的多重宇宙》開展無數個平行時空宇宙，關於所有「如果當初」的假設與後悔；關於資訊爆炸時代人無以自處的虛無；
+                                關於無數個沒有意義的輪迴漩渦，「如何『看』這樣的生活與時代」，「如何『看』這部電影」成了導演留給觀眾的核心
+                                問題，它要你好好張開眼睛「看」，看爆炸的生活，看絕望與希望，看看身邊的人，看愛的每一種形式。...
+                            </div><!--填入描述-->
+                        </div>
+                        <div class="events-footer"><a asp-area="" asp-controller="Comment" asp-action="電影評論">繼續閱讀</a></div><!--可填底部標題 或刪除-->
+                    </div>
+                </dd>
+                <!--右側文章 end-->
+                <!--月份 3-->
+                <dt>Dec 2020</dt>
+
+                <!--月份 4-->
+                <dt>Nov 2019</dt>
+            </dl>
+        </div>
+    </body>
+
+    <script>
+        $('.VivaTimeline').vivaTimeline();
+        $('.VivaTimeline').vivaTimeline({
+            carousel: true
+        });
+        $('.VivaTimeline').vivaTimeline({
+            carousel: true,
+            carouselTime: 3000
+        });
+
+    </script>
+    @*<script src="jquery.min.js"></script>
+      <script src="bootstrap.min.js"></script>*@
+    <script src="~/js/Comment/jquery.eeyellow.Timeline.js"></script> @*我的評論時間軸*@
+
+
+

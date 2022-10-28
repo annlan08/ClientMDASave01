@@ -1,0 +1,65 @@
+﻿@model List<ClientMDA.ViewModels.CTheater >
+@{
+    ViewData["Title"] = "測試業面";
+}
+<link href="~/css/Theater/電影院用改.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+
+    .star {
+        font-size: 2px !important;
+    }
+</style>
+<body>
+
+
+    <div class="commonStyled__WrapperSampleNoContent-sc-kt5vy-9 MovieInfoContentWrapper--1tebbv1 exLSHN gYprgf" id="title" style="        padding-top: 100px; overflow: auto">
+        <div class="wrapper" style="width:100% ;height:130px ">
+            <div id="熱映" class="tab checked">
+                現正熱映
+            </div>
+            <div id="上映" class="tab">
+                即將上映
+            </div>
+            <div class="underline">
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="commonStyled__WrapperSampleNoContent-sc-kt5vy-9 MovieInfoBoxWrapper--13nahzv exLSHN bYVeqc">
+
+            <div id="頁面切換" class="box-wrapper">
+
+                @await Component.InvokeAsync("現正熱映", new { datas = Model })
+
+
+            </div>
+            <div class="page">
+                @await Component.InvokeAsync("頁數", new { datas = Model })
+            </div>
+            </div>
+        </div>
+
+
+
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> footer樣式
+<script>
+            $("#上映").click(function () {
+                $(this).removeClass("checked").siblings().removeClass("checked").end().addClass("checked");
+                $("#title").removeClass("gYprgf").addClass("iyFFWC")
+                $("#頁面切換").load("@Url.Content("~/Theater/now")")
+                $(".page").load("@Url.Content("~/Theater/page")")
+
+            })
+
+            $("#熱映").click(function () {
+                $(this).removeClass("checked").siblings().removeClass("checked").end().addClass("checked");
+                $("#title").removeClass("iyFFWC").addClass("gYprgf")
+                $("#頁面切換").load("@Url.Content("~/Theater/hot")")
+                $(".page").load("@Url.Content("~/Theater/page")")
+
+            })
+ 
+
+</script>
+</body>

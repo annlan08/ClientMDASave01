@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WenPrj</title>
+
+    <link rel="stylesheet" href="~/Wencssjs/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/Wencssjs/css/site.css" />
+
+    <link rel="shortcut icon" href="~/Wencssjs/images/favicon.png" type="">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    @await RenderSectionAsync("Style", required: false)
+</head>
+<body class="bg-dark text-white">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" asp-area="" asp-controller="HomePage" asp-action="Index">&nbsp;&nbsp;<i class="fa-solid fa-tape">&nbsp;</i>回首頁</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#links">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="links">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"> <a class="nav-link text-white" asp-area="" asp-controller="WenShoppingCart" asp-action="searchkeyword">&nbsp;&nbsp;<i class="fa-solid fa-magnifying-glass"></i>&nbsp;搜尋</a></li>
+                    <li class="nav-item active"><a class="nav-link text-white" asp-area="" asp-controller="WenShoppingCart" asp-action="Index">&nbsp;&nbsp;<i class="fa-solid fa-store"></i>&nbsp;商品清單</a></li>
+                    <li class="nav-item"> <a class="nav-link text-white" asp-area="" asp-controller="WenShoppingCart" asp-action="AddToCard">&nbsp;&nbsp;<i class="fa-solid fa-cart-arrow-down"></i>&nbsp;加入購物車</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="text-white footer text-muted">
+        <div class="container">
+            &copy; 2022 - WenProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> 
+ 
+    <script src="~/Wencssjs/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Wencssjs/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Wencssjs/js/site.js" asp-append-version="true"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

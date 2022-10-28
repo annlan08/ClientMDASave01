@@ -1,0 +1,247 @@
+﻿@{
+    ViewData["Title"] = "電影評論";
+}
+
+@section Styles{
+    <style>
+        .row d-flex justify-content-center {
+            margin: 0;
+        }
+
+        .mem_rate {
+            float: right;
+        }
+
+        .mem_info {
+            float: left;
+        }
+
+        .mem_line {
+            border: solid 1px white;
+        }
+
+        .report:hover {
+            background-color: #e53637;
+        }
+    </style>
+}
+
+<section class="blog-details spad">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="blog__details__title">
+                    <h2>捍衛戰士：獨行俠</h2>
+                    <h3>不只關於速度與飛翔的渴望<br />也與我們的悔恨以及所需要的勇氣有關</h3><hr class="mem_line" />
+                    <h6>
+                        <span class="mem_info">
+                            <span style="color:white">
+                                <img src="~/images/Comment/mem01.png" alt="" height="30">
+                                <a asp-controller="Comment" asp-action="會員評論">Yuka</a>
+                            </span>
+                            <span> - 2022/07/25  於<span style="color:white"> 欣欣秀泰影城</span> 觀看</span>
+
+                        </span>
+                        <span class="mem_rate" style="color: #e89f12;">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half"></i>
+                        </span>
+                    </h6>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="blog__details__pic">
+                    <img src="https://im.marieclaire.com.tw/m800c533h100b0/assets/mc/202205/628C963D8F7801653380669.jpeg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="blog__details__content">
+                    <div class="blog__details__text">
+                        <p>
+                            湯姆．克魯斯（Tom Cruise）的《捍衛戰士：獨行俠》（Top Gun: Maverick）在各地試映過後，隨即得到了一片熱烈好評，
+                            並被不少人稱為一定要進戲院欣賞的超級大片。而且這部電影被稱讚的，還不只是真實感十足的空戰場面，甚至就連角色塑造
+                            等環節，也同樣獲得了不少影評讚美。究竟，這部眾人期待已久的電影魅力何在？又是否真的符合這樣的優秀評價？
+                        </p>
+                    </div>
+                    <div class="blog__details__item__text">
+                        @*<h4>Tobio-Nishinoya showdown:</h4>*@
+                        <img src="https://im.marieclaire.com.tw/m800c533h100b0/assets/mc/202205/628C96458963A1653380677.jpeg" alt="">
+                        <p>
+                            關於《捍衛戰士：獨行俠》，你首先得知道的是，就算你沒看過當年讓湯姆．克魯斯一舉成為全球超級巨星的《捍衛戰士》（Top Gun），
+                            又或者是就算過去看過，但如今已印象不深，基本上全都可以毫無窒礙地進入到《捍衛戰士：獨行俠》的故事裡。
+                        </p>
+                    </div>
+                    <div class="blog__details__item__text">
+                        @*<h4>Nanatsu no Taizai: Kamigami No Gekirin</h4>*@
+                        <img src="https://im.marieclaire.com.tw/m800c533h100b0/assets/mc/202205/628C9650831071653380688.jpeg" alt="">
+                        <p>
+                            不騙你，《捍衛戰士：獨行俠》確實是一部為了大銀幕而生的電影。不管是那些讓演員實際登上戰鬥機拍攝的空戰畫面，
+                            又或者是震撼感十足的飛行音效，全都令人感受到一股血脈賁張的效果，因此只要是在戲院看過本片，便會知道像是這樣
+                            的體驗，絕對難以在家裡的觀影環境中重現，更別說要是你看的是IMAX版所能感受到的臨場感了。
+                        </p>
+                    </div>
+                    <div class="blog__details__item__text">
+                        @*<h4>ID:Ianvaded:</h4>*@
+                        <img src="https://im.marieclaire.com.tw/m800c533h100b0/assets/mc/202205/628C965A7CAF41653380698.jpeg" alt="">
+                        <p>
+                            但《捍衛戰士：獨行俠》讓人佩服的地方，其實還不只是那些確實精采絕倫的空戰場面，而是在於這部片既能在懷舊方面滿足
+                            《捍衛戰士》的影迷，同時卻也顧及了主角的發展，在適度加入一些回憶片段的情況下，便能讓沒看過前作的觀眾也能清楚本
+                            作某些角色的相關背景，甚至是對他們的內心狀況有一定程度的理解，接著再透過本集的劇情，讓你了解到角色之間的衝突，
+                            甚至是他們自己與自己的內在衝突。
+                        </p><hr />
+                        <p>
+                            是的，如果從這樣的角度來看，《捍衛戰士：獨行俠》所要講述的，其實是一則與罪惡感有關的故事，描繪我們如何緊緊地抓著自己
+                            最為悔恨的事，就這麼在不知不覺中度過一年又一年，縱使表面上看起來像是什麼事也沒有，但其實只有你自己才最為清楚，有些事
+                            情就是讓你從此不敢放手去做，讓你有著各種說不出口來的顧忌，就連想要解釋的勇氣，或許也根本難以鼓起。
+                        </p><hr />
+                        <p>
+                            事實上，那與你堅不堅強、強不強悍根本一點關係也沒有。就是有些往事，會讓你從此自願當個「獨行俠」，不想再把任何可能會牽
+                            連到他人的事情給扛在肩上，因此使得勇氣與逃避之間的界線，也就這麼模糊了起來，讓一切變得像是一體兩面的存在。
+                        </p><hr />
+                        <p>
+                            從表面上來看，這是一種樂於獨挑大樑的氣魄，但在更深一點的層面，這則是一種畏懼與別人建立深厚關係的逃避，不管是並肩作戰
+                            的夥伴，又或者是攜手並行的伴侶，都有可能是你在獨行了許久以後，已經不敢再去承受，甚至也忘記該要如何接納的關係。
+                        </p><hr />
+                        <p>
+                            只是，我們究竟該懲罰自己多久？這樣的行為，是否對於某些深愛你的人來說，也同樣造成了一種不可磨滅的傷害？
+                        </p><hr />
+                        <p>
+                            像是以上的這些問題，其實全在《捍衛戰士：獨行俠》中有所觸及，因此也使這部電影除了帶來緊張刺激的高度娛樂性以外，同時也
+                            在角色塑造上，得以史觀眾心生共鳴，甚至讓我們對他們的安危因此更感關心，最終則在兩者之間達成了相輔相成的結果，就這麼帶
+                            來一場令人心滿意足的觀影體驗。
+                        </p><hr />
+                        <p>
+                            說真的，作為一部有這麼多熱情支持者的經典續集，要在影評與觀眾之間都能獲得好評，可不是一件那麼簡單的事。但《捍衛戰士：獨
+                            行俠》確實大有可能完成這項不可能的任務，甚至還很有機會讓未曾看過《捍衛戰士》的人，會在看了《捍衛戰士：獨行俠》以後，回
+                            頭去接觸這部在許多地方都可以稱之為「文化現象」，熱潮遠超過一般電影的通俗經典，進而使《捍衛戰士：獨行俠》那些關於世代交
+                            替的元素，就這麼拓展至銀幕外頭，來到了我們所身處的觀眾席之間。
+                        </p><hr />
+                        <p>
+                            但在此之前，不管你到底有沒有看過《捍衛戰士》，都暫且不用擔心。你所需要做的，就是踏入戲院，然後隨著銀幕上的角色們一同飛
+                            向危險地帶，感受他們對於速度與飛翔的渴望，以及那些我們或許也曾有過的悔恨，然後從中獲得某些勇氣。
+                        </p><hr />
+                        <p>
+                            不是所有事情都只能獨行。而擺脫悔恨的機會，有時也只能靠自己爭取──在看完《捍衛戰士：獨行俠》後，你或許會這麼發現。
+                        </p><hr />
+                    </div>
+
+                    <div class="blog__details__tags">
+                        <a href="#">#捍衛戰士2</a>
+                        <a href="#">#阿湯哥好帥</a>
+                        <a href="#">#IMAX</a>
+
+                        <div class="blog__details__comment__item__text" style="float:right">
+                            <a href="#">Like <i class="fas fa-thumbs-up"></i></a>
+                            <a href="#">UnLike <i class="fas fa-thumbs-down"></i></a>
+                            <a class="report" href="#">檢舉</a>
+                        </div>
+                    </div>
+
+                    <div style="margin: 10px 0 10px 0; border: solid 1px rgba(0,0,0,0)">
+                        <span class="mem_info">
+                            <span style="color:white">發佈時間</span>
+                            <span> - 2022/07/26 21:52</span>
+                        </span>
+                    </div>
+
+
+
+                    <div class="blog__details__btns">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="blog__details__btns__item">
+                                    <h5>
+                                        <a href="#"><span class="arrow_left"></span> 上一篇評論 </a>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="blog__details__btns__item next__btn">
+                                    <h5>
+                                        <a href="#">下一篇評論 <span class="arrow_right"></span></a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blog__details__social" style="float:right">
+                        <a href="#" class="facebook"><i class="fa fa-facebook-square"></i> Facebook</a>
+                        <a href="#" class="pinterest"><i class="fa fa-pinterest"></i> Pinterest</a>
+                        <a href="#" class="linkedin"><i class="fa fa-linkedin-square"></i> Linkedin</a>
+                        <a href="#" class="twitter"><i class="fa fa-twitter-square"></i> Twitter</a>
+                    </div><hr />
+
+                    <div class="blog__details__comment">
+                        <h4>3則留言</h4>
+                        <div class="blog__details__comment__item">
+                            <div class="blog__details__comment__item__pic">
+                                <img src="img/blog/details/comment-1.png" alt="">
+                            </div>
+                            <div class="blog__details__comment__item__text">
+                                <span>Sep 08, 2020</span>
+                                <h5>John Smith</h5>
+                                <p>
+                                    你寫的評論真棒!
+                                </p>
+                                <a href="#">Like <i class="fas fa-thumbs-up"></i></a>
+                                <a href="#">UnLike <i class="fas fa-thumbs-down"></i></a>
+                                <a class="report" href="#">檢舉</a>
+                            </div>
+                        </div>
+                        <div class="blog__details__comment__item blog__details__comment__item--reply">
+                            <div class="blog__details__comment__item__pic">
+                                <img src="img/blog/details/comment-2.png" alt="">
+                            </div>
+                            <div class="blog__details__comment__item__text">
+                                <span>Sep 08, 2020</span>
+                                <h5>佩佩</h5>
+                                <p>
+                                    推薦4DX 效果真D讚 必看一次
+                                </p>
+                                <a href="#">Like <i class="fas fa-thumbs-up"></i></a>
+                                <a href="#">UnLike <i class="fas fa-thumbs-down"></i></a>
+                                <a class="report" href="#">檢舉</a>
+                            </div>
+                        </div>
+                        <div class="blog__details__comment__item">
+                            <div class="blog__details__comment__item__pic">
+                                <img src="img/blog/details/comment-3.png" alt="">
+                            </div>
+                            <div class="blog__details__comment__item__text">
+                                <span>Sep 08, 2020</span>
+                                <h5>Adrian Coleman</h5>
+                                <p>
+                                    我三刷了!!! 內牛滿麵
+                                </p>
+                                <a href="#">Like <i class="fas fa-thumbs-up"></i></a>
+                                <a href="#">UnLike <i class="fas fa-thumbs-down"></i></a>
+                                <a class="report" href="#">檢舉</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog__details__form">
+                        <h4>你的留言</h4>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <input type="text" placeholder="Name">
+                                </div>
+                                @*<div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input type="text" placeholder="Email">
+                                    </div>*@
+                                <div class="col-lg-12">
+                                    <textarea placeholder="Message"></textarea><hr />
+                                    <button type="submit" class="site-btn">送出</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

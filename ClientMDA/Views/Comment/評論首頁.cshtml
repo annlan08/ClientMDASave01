@@ -1,0 +1,212 @@
+﻿@model List<ClientMDA.ViewModels.CCommentViewModel>
+
+@section Styles{
+    <style>
+        .owl-stage-outer {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .mem_info {
+            float: left;
+            line-height: 30px
+        }
+
+        .mem_img {
+            height: 30px;
+            width: 30px;
+            float: left;
+        }
+
+        .card-columns {
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column-count: 2;
+            -webkit-column-gap: 1.25rem;
+            -moz-column-gap: 1.25rem;
+            column-gap: 1.25rem;
+            orphans: 1;
+            widows: 1;
+            /*border: dotted 1px red;*/
+        }
+
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: rgba(255, 255, 255, 0.05);
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem;
+            border-radius: 15px;
+        }
+
+        .mb-3,
+        .my-3 {
+            margin-bottom: 2rem !important;
+        }
+
+        .text-muted {
+            float: right;
+        }
+
+        .hero {
+            padding-top: 0;
+        }
+
+        .hero__items {
+            /*height:450px;*/
+        }
+
+        .memImg {
+            border-radius: 50%;
+            height: 35px;
+            width: 35px !important;
+            margin-right: 5px;
+        }
+
+        .card-text {
+            overflow: hidden !important; /*溢位*/
+            text-overflow: ellipsis !important; /*文字溢位ellipsis... */
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /*限制元素顯示文字行數*/
+            -webkit-box-orient: vertical; /*垂直排列*/
+            word-break: break-all;
+        }
+
+        .card-title {
+            overflow: hidden !important; /*溢位*/
+            text-overflow: ellipsis !important; /*文字溢位ellipsis... */
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /*限制元素顯示文字行數*/
+            -webkit-box-orient: vertical; /*垂直排列*/
+            word-break: break-all;
+        }
+    </style>
+}
+<link href="~/css/Comment/評論首頁.css" rel="stylesheet" />
+<link href="~/css/owl.carousel.min.css" rel="stylesheet" />
+<link href="~/css/Comment/style.css" rel="stylesheet" />
+<body class="text-white">
+    <hr />
+    <div class="section-title">
+        <h5>熱門評論</h5>
+    </div>
+
+    <!--#region 評論輪播 Start-->
+    <div class="container">
+        <div class="hero__slider owl-carousel">
+
+            <div class="hero__items set-bg" data-setbg="https://im.marieclaire.com.tw/m800c533h100b0/assets/mc/202205/628C963D8F7801653380669.jpeg">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <div class="label">
+                                <span class="mem_info">
+                                    <span style="color:white">
+                                        <img class="memImg" src="~/images/Comment/mem01.png" alt="">
+                                        <a asp-area="" asp-controller="Comment" asp-action="會員評論" style="font-weight:700;font-size:18px"> Yuka@*會員*@</a> - 2022/07/26 21:52
+                                    </span>
+                                </span>
+                            </div>
+                            <h3>不只關於速度與飛翔的渴望<br />也與我們的悔恨以及所需要的勇氣有關</h3><hr />
+                            <p>
+                                湯姆．克魯斯（Tom Cruise）的《捍衛戰士：獨行俠》（Top Gun: Maverick）在各地試映過後，隨即得到了一片熱烈好評，
+                                並被不少人稱為一定要進戲院欣賞的超級大片......
+                            </p>
+                            <a asp-area="" asp-controller="Comment" asp-action="電影評論" role="button" class="btn btn-comment">
+                                <span>看評論</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__items set-bg" data-setbg="https://m.media-amazon.com/images/M/MV5BMjAzMzQ4MjE0Nl5BMl5BanBnXkFtZTgwNDAyMTI1MDI@@._V1_.jpg">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <div class="label">
+                                <span class="mem_info">
+                                    <span style="color:white">
+                                        <img class="memImg" src="~/images/Comment/mem01.png" alt="">
+                                        <a asp-area="" asp-controller="Comment" asp-action="會員評論" style="font-weight:700;font-size:18px"> Yuka</a> - 2022/07/26 21:52
+                                    </span>
+                                </span>
+                            </div>
+                            <h3>刻骨銘心的悲傷序曲</h3><hr />
+                            <p>
+                                怪獸與牠們的產地這部電影最神奇的地方是，雖然是繼哈利波特系列後的第二個全新系列，
+                                但每個環節絲毫不馬虎，帶回影迷觀看首集哈利波特當初那股感動。......
+                            </p><a asp-area="" asp-controller="Comment" asp-action="電影評論"><span>看評論</span> <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__items set-bg" data-setbg="https://m.media-amazon.com/images/M/MV5BNjNkYjUzYjAtMWJmYy00NDgxLWI0ZjUtMmEzMmQ3OWMwY2Q1XkEyXkFqcGdeQXVyMDM2NDM2MQ@@@@._V1_.jpg">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <div class="label">
+                                <span class="mem_info">
+                                    <span style="color:white">
+                                        <img class="memImg" src="~/images/Comment/mem01.png" alt="">
+                                        <a asp-area="" asp-controller="Comment" asp-action="會員評論" style="font-weight:700;font-size:18px"> rainbow</a> - 2022/07/26 21:52
+                                    </span>
+                                </span>
+                            </div>
+                            <h3>爽度十足的DC英雄片<br />巨石強森的強大魅力</h3><hr />
+                            <p>
+                                《黑亞當》是一部2022上映的DC超級英雄電影，劇情講述在被遠古眾神賦予神力，卻遭囚禁將近5000年後，
+                                「黑亞當」從他的墓地中獲得解放，準備以獨特方式在現代社會實踐他心目中的正義......
+                            </p><a asp-area="" asp-controller="Comment" asp-action="電影評論"><span>看評論</span> <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--#endregion 評論輪播 End-->
+
+    <hr />
+    <div class="section-title">
+        <h5>最新評論</h5>
+    </div>
+
+    <!-- #region 最新評論 -->
+    <div class="card-columns">
+
+        @await Component.InvokeAsync("最新評論", new { datas = Model })
+
+    </div>
+    <!-- #endregion 最新評論 -->
+
+    <hr />
+    <div class="section-title">
+        <h5>關注評論</h5>
+    </div>
+
+    <!-- #region 關注評論 -->
+    <div class="card-columns">
+
+        @await Component.InvokeAsync("關注評論", new { datas = Model })
+
+    </div>
+    <!-- #endregion 關注評論 -->
+
+</body>
+
+<!-- Js Plugins -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/bootstrap.min.js"></script>
+@*<script src="~/js/player.js"></script>*@
+<script src="~/js/jquery.nice-select.min.js"></script>
+<script src="~/js/mixitup.min.js"></script>
+<script src="~/js/jquery.slicknav.js"></script>
+<script src="~/js/owl.carousel.min.js"></script>
+<script src="~/js/main.js"></script>

@@ -1,0 +1,233 @@
+﻿@using Microsoft.AspNetCore.Http
+@using System.Text.Json;
+@inject IHttpContextAccessor Accessor
+@{
+    會員member mem = null;
+    if (Accessor.HttpContext.Session.Keys.Contains(ClientMDA.Models.CDictionary.SK_LOGINED_USER))
+    {
+        var a = Accessor.HttpContext.Session.GetString(ClientMDA.Models.CDictionary.SK_LOGINED_USER);
+        mem = JsonSerializer.Deserialize<會員member>(a);
+    }
+
+}
+<!DOCTYPE html>
+
+<html lang="zh-hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>M.D.A.觀享時刻</title>
+    <meta name="author" content="MSIT143 01陳苡錚 06王婷薇 11廖家毅 13李沛軒 16洪暐婷 18游曉雯 20鄭凱" />
+    <meta name="keywords" content="M.D.A.觀享時刻,M.D.A.,MDA,觀享時刻,電影訂票,電影評論,訂票,評論,電影,電視劇,影集,動畫,動畫電影" />
+    <meta name="date" content="2022/06/15" />
+    <meta name="description" content="M.D.A.為 Movie, Drama, Anime 的縮寫。擁有全台最方便快速的電影訂票系統，提供最完整的電影、電視劇、動畫資訊以及討論平台。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+    <link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css"> @*Header+body icon樣式*@
+    <link href="~/css/Header-特效.css" rel="stylesheet" />
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body class="text-white">
+
+    <!-- header Start -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a asp-controller="HomePage" asp-action="Index">
+                            <img src="~/images/MDA_LOGO.png" alt="" height="40">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li>
+                                    <a class="aBorder" asp-area="" asp-controller="HomePage" asp-action="Index">電影首頁</a>
+                                </li>
+                                <li class="active">
+                                    <a class="aBorder" asp-area="" asp-controller="Ticketing" asp-action="SelectMovie">快速訂票</a>
+                                </li>
+                                <li>
+                                    <a class="aBorder" text-white fs-2" asp-area="" asp-controller="Theater" asp-action="測試業面">電影時刻@*<span class="arrow_carrot-down"></span>*@</a>
+                                    @*<ul class="dropdown">
+                                            <li><a asp-area="" asp-controller="Theater" asp-action="Index">上映中</a></li>
+                                            <li><a asp-area="" asp-controller="Theater" asp-action="即將上映page1">即將上映</a></li>
+                                            <li><a href="./blog-details.html">歷年電影</a></li>
+                                            <li><a href="./blog-details.html">電影排行</a></li>
+                                        </ul>*@
+                                </li>
+                                <li>
+                                    <a class="aBorder" asp-area="" asp-controller="Movie" asp-action="排行首頁">電影排行</a>
+                                </li>
+                                <li>
+                                    <a class="aBorder" asp-area="" asp-controller="Comment" asp-action="評論首頁">電影評論@*<span class="arrow_carrot-down"></span>*@</a>
+                                    @*<ul class="dropdown">
+                                            <li><a asp-area="" asp-controller="Comment" asp-action="我的評論">我的評論</a></li>
+                                        </ul>*@
+                                </li>  <!--./blog.html-->
+                                <li>
+                                    <a class="aBorder" asp-area="" asp-controller="WenShoppingCart" asp-action="Index">商城</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                        @{
+                            if (mem == null)
+                            {
+                                <a href="/Member/Login"><span class="icon_profile"></span></a>
+                            }
+                            else
+                            {
+                                <a href="/Member/MemberMain"><span class="icon_profile"></span></a>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- menu Start -->
+            <div id="mobile-menu-wrap">
+                <div class="slicknav_menu">
+                    <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed"><span class="slicknav_menutxt">MENU</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><nav class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
+                        <ul>
+                            <li><a href="./index.html" role="menuitem">Homepage</a></li>
+                            <li class="slicknav_collapsed slicknav_parent">
+                                <a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row">
+                                    <a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+                                    <span class="slicknav_arrow">►</span>
+                                </a><ul class="dropdown slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
+                                    <li><a href="./categories.html" role="menuitem" tabindex="-1">Categories</a></li>
+                                    <li><a href="./anime-details.html" role="menuitem" tabindex="-1">Anime Details</a></li>
+                                    <li><a href="./anime-watching.html" role="menuitem" tabindex="-1">Anime Watching</a></li>
+                                    <li><a href="./blog-details.html" role="menuitem" tabindex="-1">Blog Details</a></li>
+                                    <li><a href="./signup.html" role="menuitem" tabindex="-1">Sign Up</a></li>
+                                    <li><a href="./login.html" role="menuitem" tabindex="-1">Login</a></li>
+                                </ul>
+                                <link href="~/css/site.css" rel="stylesheet" />
+                            </li>
+                            <li class="active"><a href="./blog.html" role="menuitem">Our Blog</a></li>
+                            <li><a href="#" role="menuitem">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- menu End -->
+        </div>
+    </header>
+    <!-- header End -->
+    <!-- Body Start -->
+    <div class="container body-content">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        <hr />
+    </div>
+    <!-- Body End -->
+    <!-- footer Start -->
+    <!--<footer class="footer" style="clear:both">
+        <div class="page-up">
+            <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer__logo">
+                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer__nav">
+                        <ul>
+                            <li class="active"><a href="./index.html">Homepage</a></li>
+                            <li><a href="./categories.html">Categories</a></li>
+                            <li><a href="./blog.html">Our Blog</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+     <p>-->
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    <!--Copyright &copy; M.D.A. Co., Ltd.<br />All rights reserved.<br />
+    <a href="https://colorlib.com" target="_blank">M.D.A.觀享時刻</a>-->
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    <!--</p>
+                </div>
+            </div>
+        </div>
+    </footer>-->
+
+    <footer class="footer text-center text-white" style="background-color: #070720">
+        <div class="page-up">
+            <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+        </div>
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://i.imgur.com/GOWpr54.png" role="button">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://i.imgur.com/Wj9ytuc.png" role="button">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <!-- Google -->
+                @*<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                        <i class="fab fa-google"></i>
+                    </a>*@
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://i.imgur.com/fTphyFV.png" role="button">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <!-- Linkedin -->
+                @*<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>*@
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/Yuka12948/MSIT143.ClientMDA" role="button">
+                    <i class="fab fa-github"></i>
+                </a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3" @*style="background-color: rgba(0, 0, 0, 0.2)*@>
+            Copyright &copy; <a class="text-white" href="https://mdbootstrap.com/">M.D.A.觀享時刻</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- footer End -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> @*footer樣式*@
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

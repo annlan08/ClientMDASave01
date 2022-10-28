@@ -1,0 +1,122 @@
+﻿@model List<ClientMDA.ViewModels.CMovieViewModel>
+@{
+    ViewData["Title"] = "Default"; @*電影排行新片*@
+}
+<script>
+    //let x = Math.floor((Math.random(* 10) + 1);
+    //document.getElementById("AAA").innerHTML = x;
+</script>
+@{
+    int count = 0;
+    for (var i = 0; i < Model.Count; i++)
+    {
+
+        count++;
+        string urlpic = "";
+        if (Model[i].mImgFrList.Count() > 0)
+        {
+            urlpic = Model[i].mImgFrList[0];
+        }
+
+        <li class="charts-list-row">
+            <div class="divRow">
+                <span class="charts-list-rank">@count</span>@*@Html.DisplayFor(modelItem => item.電影編號movieId)*@
+                <div class="flipper">
+                    <div class="flipper-item layer1">
+                        <a href=@Url.Action("電影介紹","Movie", new {id= Model[i].電影編號movieId})>
+                            <img class="charts-list-cover" id="poster" alt="" title="@Html.DisplayFor(modelItem => Model[i].中文標題titleCht)"
+                                 src="@urlpic"> @* 空圖時"~/images/Comment/poster_none1.png"*@
+                            </a>
+                        <span class="charts-list-desc">
+                            <span class="charts-list-song" title="@Html.DisplayFor(modelItem => Model[i].中文標題titleCht)">
+                                <a href=@Url.Action("電影介紹","Movie", new {id= Model[i].電影編號movieId})>@Html.DisplayFor(modelItem => Model[i].中文標題titleCht)</a>
+                            </span>
+                            <span class="charts-list-artist" title="@Html.DisplayFor(modelItem => Model[i].英文標題titleEng)">
+                                <a href=@Url.Action("電影介紹","Movie", new {id= Model[i].電影編號movieId})>@Html.DisplayFor(modelItem => Model[i].英文標題titleEng)</a>
+                            </span>
+                        </span>
+
+                        <span class="charts-list-content"></span>
+                        <span class="charts-list-span"><i class="fas fa-star" style="padding-right:5px;color:#ffc107"></i> 5</span>
+
+                        <div class="dropdown">
+                            <button aria-label="Rate @Html.DisplayFor(modelItem => Model[i].中文標題titleCht)" class="ipc-rate-button ipc-rating-star-group--unrated ipc-rate-button--unrated ipc-rate-button--baseAlt"
+                                    data-testid="rate-button" data-modal-target="#ToRate">
+                                <span class="ipc-rating-star ipc-rating-star--baseAlt ipc-rating-star--rate">
+                                    <i class="far fa-star" style="padding-right:5px;color:#ffc107"></i>評分
+                                </span>
+                            </button>
+                        </div>
+                        <span class="charts-list-date">@Html.DisplayFor(modelItem => Model[i].上映日期releaseDate)</span>
+                        <span class="charts-list-prev-rank">
+                            <div class="wlb_ribbon" data-tconst="tt0111161" data-recordmetrics="true" style="position: relative;">
+                                <div class="wl-ribbon standalone not-inWL" title="點擊添加到關注列表"></div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </li>
+    }
+    <script>
+        const element = document.getElementById('#poster');
+        if (element('src', null))
+            element.setAttribute('src', '~/images/Comment/poster_none1.png');
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*for (var i = 0; i < 12; i++)
+        {
+            <a href="@Url.Action("快定頁面測試", "Theater",new {id=Model[i].電影編號movieId })">
+                <div class="post-box">
+                    <div class="post" style="background-image: url(&quot;https://img.ezding.com.tw/photos/ezding/poster/px_fcatm0873074_0003.jpg&quot;), url(&quot;Static/common/poster.png&quot;);"></div>
+                    <div class="coming">
+                        上映日期<span>@Model[i].上映日期releaseDate</span>
+                    </div>
+                    <div class="title" title="阮玲玉">
+                        <input class="mov" type="hidden" value="@Model[i].電影編號movieId" />
+
+                        @Model[i].中文標題titleCht
+                    </div>
+                    <div class="en" title="Ruan Ling Yu">
+                        @Model[i].英文標題titleEng
+                    </div>
+                    <div class="grade">
+                        @Model[i].分級級數ratingLevel
+                    </div>
+                </div>
+
+            </a>
+        }*@
+
+
+}
+
+
+
+<script>
+
+</script>
