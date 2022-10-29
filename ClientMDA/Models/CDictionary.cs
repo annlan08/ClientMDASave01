@@ -16,5 +16,7 @@ namespace ClientMDA.Models
         public static readonly string SK_LOGINED_USER = "SK_LOGINED_USER";
         public static readonly string SK_USER_PHONE = "SK_USER_PHONE";
         public static readonly string SK_ORDER_INFO = "SK_ORDER_INFO";
+
+        public static readonly string SK_SelectMovieLastPartialview = "SK_SelectMovieLastPartialview";
     }
 }

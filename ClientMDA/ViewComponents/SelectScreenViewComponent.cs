@@ -20,6 +20,7 @@ namespace ClientMDA.ViewComponents
             _dbContext.場次screenings.ToList();
             _dbContext.影廳cinemas.ToList();
             _dbContext.電影代碼movieCodes.ToList();
+            _dbContext.出售座位狀態seatStatuses.ToList();
         }
 
         public IViewComponentResult Invoke(DateTime time)

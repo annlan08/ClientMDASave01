@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Hosting;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Http;
+@{
 
 }
 <link rel="stylesheet" href="~/cyborg/css/fontawesome.css">
@@ -9,10 +12,15 @@
         font-size: 105%;
     }
 </style>
+@{
+    if (ViewBag.Lineflag != 1)
+    {
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+    }
+}
 
-<div id="preloader">
-    <div class="loader"></div>
-</div>
 
 <section class="container m-auto pb-1" style="padding-top:5%">
     <div class="row mb-3 justify-content-center">
