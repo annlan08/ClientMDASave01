@@ -457,6 +457,62 @@ namespace ClientMDA.Controllers
 
         }
 
+        public void fn_顯示訂單詳情(int orderID)
+        {
+            var q = this._MDAcontext.訂單總表orders.AsEnumerable()
+                      .Where(o => o.訂單編號orderId == orderID)
+                      .Select(o => new COrderInfoViewModel
+                      {
+                          OrderId=o.訂單編號orderId,
+                          MovieName=this._MDAcontext.場次screenings
+                                        .Where(s=>s.場次編號screeningId==o.場次編號screeningId)
+                                        .Select(s=>s.電影代碼movieCodeNavigation.電影編號movie.中文標題titleCht)
+                                        .FirstOrDefault(),
+                          MovieVersion= this._MDAcontext.場次screenings
+                                        .Where(s => s.場次編號screeningId == o.場次編號screeningId)
+                                        .Select(s => s.影廳編號cinema.廳種名稱cinemaClsName)
+                                        .FirstOrDefault(),
+                          StartTime = this._MDAcontext.場次screenings
+                                         .Where(s => s.場次編號screeningId == o.場次編號screeningId)
+                                         .Select(s=>s.放映開始時間playTime).FirstOrDefault(),
+                          TheaterAddress=this._MDAcontext.場次screenings
+                                             .Where(s => s.場次編號screeningId == o.場次編號screeningId)
+                                             .Select(s=>s.影廳編號cinema.電影院編號theater.地址address).FirstOrDefault(),
+                          TheaterName= this._MDAcontext.場次screenings
+                                             .Where(s => s.場次編號screeningId == o.場次編號screeningId)
+                                             .Select(s => s.影廳編號cinema.電影院編號theater.電影院名稱theaterName).FirstOrDefault(),
+                          
 
+
+
+
+
+
+                      });
+                                                    
+        }
+
+        public int fn_計算總價(int orderID)
+        {
+            int price = 0;
+            var priceList = this._MDAcontext.訂單明細orderDetails
+                       .Where(o => o.訂單編號orderId == orderID)
+                       .Select(o =>o.張數count * o.票價明細ticket.價格ticketPrice).ToList();
+            foreach(decimal item in priceList)
+            {
+                price += (int)item;
+            }
+
+            return price;
+        }
+
+        public string fn_顯示票價表(int orderID)
+        {
+            string TicketInfo = "";
+            var q = this._MDAcontext.訂單明細orderDetails
+                      .Where(o => o.訂單明細編號orderDetailId == orderID)
+                      .Select();
+
+        }
     }
 }
